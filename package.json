@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "biome lint --write",
+    "lint:fix": "biome check --write"
   },
   "dependencies": {
     "@hookform/resolvers": "^4.1.3",
@@ -33,8 +34,16 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "lint-staged": "^15.5.0",
+    "simple-git-hooks": "^2.12.1",
     "tailwindcss": "^4",
     "typescript": "^5",
     "ultracite": "4.2.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "bun lint-staged"
+  },
+  "lint-staged": {
+    "*": "biome check --write"
   }
 }
