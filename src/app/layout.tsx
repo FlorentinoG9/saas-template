@@ -3,6 +3,7 @@ import './globals.css'
 import { geistMono } from '@/components/fonts'
 import { geistSans } from '@/components/fonts'
 import { ThemeProvider } from '@/components/theme/theme-provider'
+import { Toaster } from '@/components/ui/sonner'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,6 +16,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground antialiased`}>
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
           {children}
+          <Toaster richColors />
         </ThemeProvider>
       </body>
     </html>
